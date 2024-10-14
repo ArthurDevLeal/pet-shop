@@ -1,14 +1,18 @@
 "use client";
 import { Input } from "@/app/components/ui/Input";
-import { useUserContext } from "@/hooks/use-user-context";
+import { Dispatch, SetStateAction } from "react";
+interface FormProps {
+  setFullname: Dispatch<SetStateAction<string>>;
+  setEmail: Dispatch<SetStateAction<string>>;
+  setPassword: Dispatch<SetStateAction<string>>;
+}
 
-export default function Form() {
-  const { email, fullName, password, setEmail, setFullName, setPassword } = useUserContext();
+export default function Form({ setFullname, setPassword, setEmail }: FormProps) {
   return (
-    <>
-      <Input type="text" text="Full Name" className="mb-4" value={fullName} onChange={setFullName} />
-      <Input type="text" text="Email" className="mb-4" value={email} onChange={setEmail} />
-      <Input type="password" text="Password" className="mb-4" value={password} onChange={setPassword} />
-    </>
+    <form className="flex flex-col">
+      <Input type="text" text="Full Name" className="mb-4" onChange={setFullname} />
+      <Input type="text" text="Email" className="mb-4" onChange={setEmail} />
+      <Input type="password" text="Password" className="mb-4" onChange={setPassword} />
+    </form>
   );
 }
