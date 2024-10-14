@@ -29,7 +29,7 @@ export default function Page() {
       <div className="flex flex-col items-center gap-8">
         <AccountButton text="Have an account?" href="/login" hrefText="Login" />
         <UserProvider>
-          <Button text="Get Started" href="#" isActive={true} />
+          <Button text="Get Started" href="#" />
         </UserProvider>
       </div>
     </main>
